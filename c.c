@@ -3,7 +3,7 @@
 
 void    ajouter(char titre[][100], char auteur[][100], float prix[], int quantite[], int count);
 void    afficher(char titre[][100], char auteur[][100], float prix[], int quantite[], int count);
-void    Rechercher (char titre[][100],char stre[],int count);
+void    Rechercher (char titre[][100],char auteur[][100], float prix[], int quantite[],char stre[],int count);
 void    update(char titre[][100],char stre[], int quantite[10],int count);
 void    Total(int quantite[10],int count);
 void    Supprimer (char titre[][100], char auteur[][100], float prix[], int quantite[], char stre[],int count);
@@ -49,10 +49,10 @@ int main ()
                 printf("%d",c);
                 break;
             case 6:
-                char wor[100];
+                char stre[100];
                 printf("Enter the titre: ");
-                scanf("%s", wor);
-                Rechercher(titre, wor, c);
+                scanf("%s", stre);
+                Rechercher(titre ,auteur, prix, quantite, stre, c);
                 break;
             default:
                 printf("Default!");
@@ -97,7 +97,7 @@ void  afficher(char titre[][100], char auteur[][100], float prix[], int quantite
     }
 }
 
-void Rechercher (char titre[][100],char stre[],int count)
+void Rechercher (char titre[][100],char auteur[][100], float prix[], int quantite[],char stre[],int count)
 {
     int r = 0;
     for (int i = 0; i < count; i++)
@@ -122,12 +122,12 @@ void update(char titre[][100],char stre[], int quantite[10],int count)
     {
         if (strcmp(titre[i] ,stre) == 0)
         {
-             printf ("titre  : %s",titre[i] );
+            // printf ("titre  : %s",titre[i] );
              r = i;
         }
     }
     printf ("quantite : ");
-    quantite[r] += scanf ("%d", &n);  
+    scanf ("%d", &quantite[r]);  
 }
 
 void Total(int quantite[10],int count)
